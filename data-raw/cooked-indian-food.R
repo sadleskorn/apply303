@@ -26,15 +26,6 @@ name_and_quant$Prop.of.Total = name_and_quant$Total.Quantity / total_num_items
 # Include variable denoting omnivore/herbivore status (i.e., whether dish has meat or not)
 name_and_quant$Meat.Veg = "Veg"
 name_and_quant$Item.Name <- as.character(name_and_quant$Item.Name)
-
-# tag_as_meat <- function(df, meat_word, column_checked, tag_column) {
-#   df <- df %>% mutate(tag_column =
-#                         ifelse(str_detect(column_checked, meat_word),
-#                                "Meat", tag_column)
-#   )
-# }
-# ^^ tried to get this guy working, but he wouldn't... so sad!!
-
 name_and_quant <- name_and_quant %>% mutate(Meat.Veg =
                                               ifelse(str_detect(Item.Name, "Fish") |
                                                        str_detect(Item.Name, "Beef") |
