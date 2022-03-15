@@ -16,18 +16,26 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(apply303)
+library(plotly)
 ```
 
-```{r}
-olympics0 <- read.csv('data-raw/winter-olympics.csv')
+```{r load-data, echo = FALSE}
+load(file = "~/Data-303/apply303/data/total_medals.rda")
+load(file = "~/Data-303/apply303/data/medal_counts.rda")
+load(file = "~/Data-303/apply303/data/medal_counts2.rda")
+load(file = "~/Data-303/apply303/data/medals_per_event.rda")
+load(file = "~/Data-303/apply303/data/medal_location2.rda")
 ```
 
+## Total Medals
 ```{r}
 total_medals |>
   plot_ly(x = ~Country, y = ~totals) %>%
   add_bars() |>
   layout(title = "Norway has more Winter Olympic Medals than All Other Countries<br> (1924 - 2014)")
 ```
+
+## Medals by Place
 
 ```{r}
 medal_counts |>
@@ -61,6 +69,8 @@ medal_counts2 |>
                                  ))))
 ```
 
+## Medals by Event
+
 ```{r message = FALSE, warning = FALSE}
 medals_per_event$Medal <- factor(medals_per_event$Medal,                 # Relevel group factor
                          levels = c("gold", "silver", "bronze"))
@@ -81,6 +91,8 @@ bscols(widths = c(2,NA),
        title = "Medals per Country <br> Split by Event"))) 
   
 ```
+
+## Choropleth of Medals
 
 ```{r}
 medal_location2$hover <- with(medal_location2, paste(name, '<br>', 

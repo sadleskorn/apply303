@@ -39,12 +39,6 @@ medal_location <- olympics0 |>
   dplyr::left_join(world) |>
   dplyr::select(name, iso_a3, totals)
 
-medal_location <- medal_location |>
-  dplyr::mutate(iso_a3 = dplyr::if_else(name == "Britain", "GBR", iso_a3),
-         iso_a3 = dplyr::if_else(name == "Liechtenstein", "LIE", iso_a3),
-         iso_a3 = dplyr::if_else(name == "Czech Republic", "CZE", iso_a3)) |>
-  dplyr::filter(!is.na(iso_a3))
-
 world <- rnaturalearth::ne_countries(returnclass = "sf")
 
 medal_location2 <- olympics0 |>
@@ -71,3 +65,9 @@ medal_location2 <- medal_location2 |>
          silver = base::ifelse(is.na(silver), 0, silver),
          gold = base::ifelse(is.na(gold), 0, gold),
          total = gold + silver + bronze)
+
+usethis::use_data(total_medals)
+usethis::use_data(medal_counts)
+usethis::use_data(medal_counts2)
+usethis::use_data(medal_location2)
+usethis::use_data(medals_per_event)
