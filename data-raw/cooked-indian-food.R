@@ -42,3 +42,6 @@ name_and_quant <- name_and_quant %>% mutate(Meat.Veg =
                                                        str_detect(Item.Name, "Meat") |
                                                        str_detect(Item.Name, "Tandoori Mixed"),
                                                      "Meat", Meat.Veg))
+
+usethis::use_data(name_and_quant)
+usethis::use_data(total_num_items)
