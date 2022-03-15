@@ -17,3 +17,83 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(apply303)
 ```
+
+```{r}
+olympics0 <- read.csv('data-raw/winter-olympics.csv')
+```
+
+```{r}
+total_medals |>
+  plot_ly(x = ~Country, y = ~totals) %>%
+  add_bars() |>
+  layout(title = "Norway has more Winter Olympic Medals than All Other Countries<br> (1924 - 2014)")
+```
+
+```{r}
+medal_counts |>
+  mutate(Medal = forcats::fct_relevel(Medal,'bronze','silver','gold'),
+                Country = reorder(Country, totals, sum)) |>
+  plot_ly(x = ~Country, y = ~totals, color = ~Medal) %>%
+  add_bars() |>
+  layout(barmode = "stack",
+         hovermode = "x") |>
+  layout(title = "Norway Has the Most Gold, Silver, and Bronze Winter Olympic Medals <br> (1924 - 2014)")
+```
+
+
+```{r}
+medal_counts2 |>
+  mutate(Medal = forcats::fct_relevel(Medal,'bronze','silver','gold'),
+                Country = reorder(Country, totals, sum)) |>
+  plot_ly() %>%
+  add_bars(x = ~Country, y = ~totals, color = ~Medal, colors = c("#CD7F32", "#C0C0C0", "#FFD700")) |>
+  layout(hovermode = "x") |>
+  layout(title = "Norway Has the Most Gold, Silver, and Bronze Winter Olympic Medals <br> (1924 - 2014)") |> 
+ layout(
+         yaxis = list(title = "Total Medals"),
+         xaxis = list(rangeslider = list(type = "date")),
+         updatemenus = list(list(type = "buttons", direction = "right", x = 0.9, y = 0.98,
+                                 buttons = list(
+                                   list(method = "relayout", args = list("barmode", "group"), 
+                                        label = "Dodge"),
+                                   list(method = "relayout", args = list("barmode", "stack"),
+                                        label = "Stack")
+                                 ))))
+```
+
+```{r message = FALSE, warning = FALSE}
+medals_per_event$Medal <- factor(medals_per_event$Medal,                 # Relevel group factor
+                         levels = c("gold", "silver", "bronze"))
+
+require(crosstalk)
+shared_medals <- SharedData$new(medals_per_event)
+
+bscols(widths = c(2,NA),
+  list(
+    filter_select("Sport", "Sport", shared_medals, ~Sport)
+  ),
+  ggplotly(shared_medals %>% 
+  ggplot(aes(Country, totals)) +
+  geom_point(aes(color = Medal, label = Sport))  +
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
+  scale_color_manual(values=c("#FFD700", "#C0C0C0", "#CD7F32")) + 
+  labs(x = "Country <br> (alphabetical)", y = "Medals Won", size = "", 
+       title = "Medals per Country <br> Split by Event"))) 
+  
+```
+
+```{r}
+medal_location2$hover <- with(medal_location2, paste(name, '<br>', 
+                                                     "Gold:", gold, "<br>", 
+                                                     "Silver:", silver, "<br>", 
+                                                     "Bronze:", bronze))
+
+plot_ly(medal_location2, 
+        type='choropleth', 
+        locations=medal_location2$iso_a3, 
+        z=medal_location2$total, text=medal_location2$hover, colorscale="Blues",
+        reversescale = TRUE) |> # make darker countries = more medals
+  layout(title = "Winter Olympic Medals Won per Country <br> (1924 - 2014)") |>
+  colorbar(title = "Total Medals") 
+```
+
