@@ -1,0 +1,19 @@
+---
+title: "ufo"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ufo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(apply303)
+```

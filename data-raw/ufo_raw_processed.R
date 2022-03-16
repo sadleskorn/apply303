@@ -1,6 +1,6 @@
 
 ### Inspect Data
-ufos_raw <- read_csv("ufos-scrubbed.csv") %>%
+ufos_raw <- read_csv("ufo_raw.csv") %>%
   filter(country == "us")
 
 #Data transformation
@@ -13,3 +13,5 @@ ufos_raw$month <-format(as.Date(ufos_raw$datetime,format="%m/%d/%Y"),"%Y/%m")
 ufos <- ufos_raw %>%
   filter(year >= '2000') %>%
   select(c(datetime, latitude, longitude, month, comments, state, city, year, shape))
+
+usethis::use_data(ufos, overwrite = TRUE)
