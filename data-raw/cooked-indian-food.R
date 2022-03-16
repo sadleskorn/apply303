@@ -4,7 +4,7 @@ library(ggplot2)
 library(plotly)
 
 # Load data
-rest_1_orders <- read.csv(file = "/home/ehl6/DS303/apply303/data-raw/indian-food-orders.csv")
+rest_1_orders <- read.csv(file = "data-raw/indian-food-orders.csv")
 
 # Remove drink orders
 rest_1_orders <- rest_1_orders[!grepl('wine', rest_1_orders$Item.Name),]
