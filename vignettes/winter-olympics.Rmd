@@ -10,11 +10,13 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.width = 6,
+  fig.height = 4
 )
 ```
 
-```{r setup}
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
 library(apply303)
 library(plotly)
 ```
@@ -45,7 +47,7 @@ medal_counts |>
   add_bars() |>
   layout(barmode = "stack",
          hovermode = "x") |>
-  layout(title = "Norway Has the Most Gold, Silver, and Bronze Winter Olympic Medals <br> (1924 - 2014)")
+  layout(title = "Norway Has the Most Gold, Silver, <br> and Bronze Winter Olympic Medals <br> (1924 - 2014)")
 ```
 
 
@@ -56,7 +58,7 @@ medal_counts2 |>
   plot_ly() %>%
   add_bars(x = ~Country, y = ~totals, color = ~Medal, colors = c("#CD7F32", "#C0C0C0", "#FFD700")) |>
   layout(hovermode = "x") |>
-  layout(title = "Norway Has the Most Gold, Silver, and Bronze Winter Olympic Medals <br> (1924 - 2014)") |> 
+  layout(title = "Norway Has the Most Gold, Silver, <br> and Bronze Winter Olympic Medals <br> (1924 - 2014)") |> 
  layout(
          yaxis = list(title = "Total Medals"),
          xaxis = list(rangeslider = list(type = "date")),
