@@ -9,6 +9,8 @@
 #'   \item{totals}{total number of medals, in counts}
 #' }
 #' @examples
+#' glimpse(total_medals)
+#'
 #' total_medals |>
 #' plot_ly(x = ~Country, y = ~totals) %>%
 #'  add_bars() |>
@@ -27,6 +29,8 @@ NULL
 #'   \item{totals}{number of medals of that type, in counts}
 #' }
 #' @examples
+#' head(medal_counts)
+#'
 #' medal_counts |>
 #' mutate(Medal = forcats::fct_relevel(Medal,'bronze','silver','gold'),
 #'       Country = reorder(Country, totals, sum)) |>
@@ -49,6 +53,8 @@ NULL
 #'   \item{totals}{number of medals of that type, in counts}
 #' }
 #' @examples
+#' data(medal_counts2)
+#'
 #' medal_counts2 |>
 #' mutate(Medal = forcats::fct_relevel(Medal,'bronze','silver','gold'),
 #'       Country = reorder(Country, totals, sum)) |>
@@ -81,6 +87,8 @@ NULL
 #'   \item{totals}{number of medals of that type, in counts}
 #' }
 #' @examples
+#' glimpse(medals_per_event)
+#'
 #' bscols(widths = c(2,NA),
 #' list(
 #'  filter_select("Sport", "Sport", shared_medals, ~Sport)
@@ -109,6 +117,8 @@ NULL
 #'   \item{total}{total number of medals, sum of bronze, gold, and silver}
 #' }
 #' @examples
+#' head(medal_location2)
+#'
 #' plot_ly(medal_location2,
 #' type='choropleth',
 #' locations=medal_location2$iso_a3,

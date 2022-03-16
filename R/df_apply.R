@@ -19,6 +19,9 @@
 #'          factor = factor(letters[1L:n]),
 #'          logical = rep(c(TRUE, FALSE), length.out = n) )
 #' df_apply(TestData, round, is.numeric, toupper, digits = 1)
+#'
+#' load(medals_per_event)
+#' df_apply(medals_per_event, tolower, !is.numeric)
 df_apply <- function(.data, .f, .condition=function(x) {TRUE}, .else=function(x) {x}, ...) {
   .data |>
     lapply(
