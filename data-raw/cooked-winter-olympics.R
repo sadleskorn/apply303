@@ -2,14 +2,14 @@ olympics0 <- utils::read.csv('data-raw/winter-olympics.csv')
 
 total_medals <- olympics0 |>
   dplyr::group_by(Country) |>
-  dplyr::summarise(totals = n()) |>
+  dplyr::summarise(totals = dplyr::n()) |>
   dplyr::filter(totals >= 100) |>
   dplyr::mutate(Country = stats::reorder(Country, totals, max)) |>
   dplyr::ungroup()
 
 medal_counts <- olympics0 |>
   dplyr::group_by(Country, Medal) |>
-  dplyr::summarise(totals = n()) |>
+  dplyr::summarise(totals = dplyr::n()) |>
   dplyr::filter(totals >= 30) |>
   dplyr::mutate(Medal = forcats::fct_relevel(Medal,'gold','silver','bronze'),
          Country = stats::reorder(Country, totals, max)
@@ -18,7 +18,7 @@ medal_counts <- olympics0 |>
 
 medal_counts2 <- olympics0 |>
   dplyr::group_by(Country, Medal) |>
-  dplyr::summarise(totals = n()) |>
+  dplyr::summarise(totals = dplyr::n()) |>
   dplyr::mutate(Medal = forcats::fct_relevel(Medal,'gold','silver','bronze'),
          Country = stats::reorder(Country, totals, max)
   ) |>
@@ -26,15 +26,15 @@ medal_counts2 <- olympics0 |>
 
 medals_per_event <- olympics0 |>
   dplyr::group_by(Country, Medal, Sport) |>
-  dplyr::summarise(totals = n()) |>
+  dplyr::summarise(totals = dplyr::n()) |>
   dplyr::mutate(
-    Country = reorder(Country, totals, max)
+    Country = stats::reorder(Country, totals, max)
   ) |>
   dplyr::ungroup()
 
 medal_location <- olympics0 |>
   dplyr::group_by(Country) |>
-  dplyr::summarise(totals = n()) |>
+  dplyr::summarise(totals = dplyr::n()) |>
   dplyr::rename(name = Country) |>
   dplyr::left_join(world) |>
   dplyr::select(name, iso_a3, totals)
@@ -43,7 +43,7 @@ world <- rnaturalearth::ne_countries(returnclass = "sf")
 
 medal_location2 <- olympics0 |>
   dplyr::group_by(Country, Medal) |>
-  dplyr::summarise(totals = n()) |>
+  dplyr::summarise(totals = dplyr::n()) |>
   dplyr::mutate(Medal = forcats::fct_relevel(Medal,'gold','silver','bronze'),
          name = stats::reorder(Country, totals, max)
   ) |>
