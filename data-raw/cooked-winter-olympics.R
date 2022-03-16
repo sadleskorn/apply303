@@ -66,8 +66,8 @@ medal_location2 <- medal_location2 |>
          gold = base::ifelse(is.na(gold), 0, gold),
          total = gold + silver + bronze)
 
-usethis::use_data(total_medals)
-usethis::use_data(medal_counts)
-usethis::use_data(medal_counts2)
-usethis::use_data(medal_location2)
-usethis::use_data(medals_per_event)
+usethis::use_data(total_medals, overwrite = TRUE)
+usethis::use_data(medal_counts, overwrite = TRUE)
+usethis::use_data(medal_counts2, overwrite = TRUE)
+usethis::use_data(medal_location2, overwrite = TRUE)
+usethis::use_data(medals_per_event, overwrite = TRUE)
