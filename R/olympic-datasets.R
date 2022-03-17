@@ -1,4 +1,4 @@
-#' Total Winter Olympic Medals won by each country
+#' @title Total Winter Olympic Medals won by each country
 #'
 #' A dataset containing the total medals won by each country, assuming the country
 #' has won at least 100 medals

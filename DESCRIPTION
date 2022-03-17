@@ -2,9 +2,9 @@ Package: apply303
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person("Sadie", "Kornoelje", , "smk92@calvin.edu", role = c("aut", "cre")),
-    person("Daniel", "Kwik", , "@calvin.edu", role = c("aut", "cre")),
-    person("Eleanor", "Lee", , "@calvin.edu", role = c("aut", "cre"))
+    c(person("Sadie", "Kornoelje", , "smk92@calvin.edu", role = c("aut", "cre")),
+    person("Daniel", "Kwik", , "@calvin.edu", role = "aut"),
+    person("Eleanor", "Lee", , "@calvin.edu", role = "aut"))
 Description: The main functionality of the package is to define the df_apply() function. 
     This function applies a vectorized function to columns of a data frame that pass a given condition.
     This package also creates vignettes for a variety of data sets, creating plots for each.
