@@ -18,10 +18,6 @@ knitr::opts_chunk$set(
 library(apply303)
 ```
 
-```{r}
-load(file = "~/Data-303/apply303/data/ufos.rda")
-```
-
 
 ```{r echo = FALSE}
 Sys.setenv('MAPBOX_TOKEN' = 'pk.eyJ1IjoiZGt3aWsiLCJhIjoiY2t6bm0zaXNsMjFleTJucGE4MXQ0a2x5ZCJ9.d3zS2uGrfhj_ZZ2-WNDNMg')
