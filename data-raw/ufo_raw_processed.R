@@ -1,4 +1,3 @@
-
 library(tidyverse)
 library(plotly)
 library(dplyr)
@@ -6,7 +5,7 @@ library(lubridate)
 library(fastR2)
 library(knitr)
 
-ufos_raw <- read_csv("ufos-scrubbed.csv") %>%
+ufos_raw <- read_csv("data-raw/ufos-scrubbed.csv") %>%
   filter(country == "us")
 
 ufos_raw$comments <- str_wrap(ufos_raw$comments, 50)
