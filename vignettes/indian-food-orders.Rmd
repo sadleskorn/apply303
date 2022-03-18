@@ -27,7 +27,7 @@ knitr::opts_chunk$set(fig.width=8, fig.height=5)
 
 ```{r, boxplot of average price of meat/veg dishes}
 
-box <- ggplot(data=name_and_quant, mapping=aes(x=Meat.Veg, y=Product.Price, color=Meat.Veg)) +
+box <- ggplot2::ggplot(data=name_and_quant, mapping=aes(x=Meat.Veg, y=Product.Price, color=Meat.Veg)) +
   scale_colour_manual(values = c("tomato3","darkgreen")) +
   theme_bw() + 
   ggtitle("Price Distributions for Meat & Vegetable Dishes") +
@@ -37,14 +37,14 @@ box <- ggplot(data=name_and_quant, mapping=aes(x=Meat.Veg, y=Product.Price, colo
 ```
 
 ``` {r}
-ggplotly(box)
+plotly::ggplotly(box)
 ```
 
 ```{r, plot visualization}
 #name_and_quant$
 
 p <- name_and_quant %>%
-  ggplot( aes(Product.Price, Total.Quantity, color=Meat.Veg, label=Item.Name) ) +
+  ggplot2::ggplot( aes(Product.Price, Total.Quantity, color=Meat.Veg, label=Item.Name) ) +
   scale_colour_manual(values = c("tomato3","darkgreen")) +
   geom_jitter(width=0.15) +
   theme_bw() + 
@@ -55,7 +55,7 @@ p <- name_and_quant %>%
 
 
 ```{r}
-ggplotly(p)
+plotly::ggplotly(p)
 ```
 
 
