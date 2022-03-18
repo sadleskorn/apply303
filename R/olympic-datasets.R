@@ -15,7 +15,8 @@
 #' plot_ly(x = ~Country, y = ~totals) %>%
 #'  add_bars() |>
 #'  layout(title = "Norway has more Winter Olympic Medals than All Other Countries<br> (1924 - 2014)")
-##
+
+"total_medals"
 
 #' @title Medal Counts for Winter Olympics by Country
 #'
@@ -39,7 +40,8 @@
 #'  layout(barmode = "stack",
 #'         hovermode = "x") |>
 #'  layout(title = "Norway Has the Most Gold, Silver, <br> and Bronze Winter Olympic Medals <br> (1924 - 2014)")
-##
+
+"medal_counts"
 
 #' @title Medal Counts for Winter Olympics by Country
 #'
@@ -72,7 +74,8 @@
 #'                              list(method = "relayout", args = list("barmode", "stack"),
 #'                                   label = "Stack")
 #'                            ))))
-##
+
+"medal_counts2"
 
 #' @title Medal Counts for Winter Olympics by Country per event
 #'
@@ -100,7 +103,8 @@
 #'           scale_color_manual(values=c("#FFD700", "#C0C0C0", "#CD7F32")) +
 #'           labs(x = "Country <br> (alphabetical)", y = "Medals Won", size = "",
 #'                title = "Medals per Country <br> Split by Event")))
-##
+
+"medals_per_event"
 
 #' @title Medal Counts for Winter Olympics by Country
 #'
@@ -126,5 +130,6 @@
 #' reversescale = TRUE) |> # make darker countries = more medals
 #'  layout(title = "Winter Olympic Medals Won per Country <br> (1924 - 2014)") |>
 #'  colorbar(title = "Total Medals")
-##
+
+"medal_location2"
 

@@ -18,4 +18,5 @@
 #' name_and_quant %>% group_by(Meat.Veg) %>%
 #' summarise(Num.Dishes.Sold = sum(Total.Quantity),
 #' Total.Revenue = sum(Total.Quantity * Product.Price))
-##
+
+"name_and_quant"
