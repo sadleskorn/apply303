@@ -16,7 +16,7 @@ A dataframe with 238 rows and 5 variables:
 \item{Meat.Veg}{Whether the dish is vegetarian (Veg) or not (Meat)} }
 }
 \usage{
-Run the entire file. It will generate two .rda files in the /data folder, name_and_quant and total_num_items.
+name_and_quant
 }
 \description{
 Takeout orders from an Indian restaurant.

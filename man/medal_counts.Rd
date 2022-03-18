@@ -34,7 +34,6 @@ mutate(Medal = forcats::fct_relevel(Medal,'bronze','silver','gold'),
  add_bars() |>
  layout(barmode = "stack",
         hovermode = "x") |>
- layout(title = "Norway Has the Most Gold, Silver,
- <br> and Bronze Winter Olympic Medals <br> (1924 - 2014)")
+ layout(title = "Norway Has the Most Gold, Silver, <br> and Bronze Winter Olympic Medals <br> (1924 - 2014)")
 }
 \keyword{datasets}

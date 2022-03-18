@@ -2,8 +2,6 @@
 #'
 #' A dataset containing the total quantity of each dish ordered, as well as the dish's price and status as vegetarian or meat.
 #'
-#' @usage Run the entire file. It will generate two .rda files in the /data folder, name_and_quant and total_num_items.
-#'
 #' @format A dataframe with 238 rows and 5 variables:
 #' \describe{
 #' \item{Item.Name}{Name of the dish}
