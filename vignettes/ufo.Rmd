@@ -32,34 +32,34 @@ Sys.setenv('MAPBOX_TOKEN' = 'pk.eyJ1IjoiZGt3aWsiLCJhIjoiY2t6bm0zaXNsMjFleTJucGE4
 ## Plot of UFOs sightings animated from the year 2000 onwards
 ```{r}
 
-ufos %>% 
-  plot_mapbox(frame = ~month) %>% #frame creates animation
+ufos |> 
+  plot_mapbox(frame = ~month) |> #frame creates animation
   layout(
     mapbox = list(
       style = "dark", #changes map style
       zoom = 2.4, 
       center = list(lat = 37, lon = -95) #centers on USA
     )
-  ) %>% 
+  ) |> 
   add_markers(
     x = ~longitude, 
     y = ~latitude,
     marker = list(size = 3, color = "#FFFFCC", opacity = 0.4), #creates glyph aesthetic
-  ) %>% 
+  ) |> 
   animation_opts(100) #sets the number of milliseconds per frame 
 ```
 ## Plot of UFO sightings cumulative from 2000.
 
 ```{r}
-ufos1 <- ufos %>% 
-  plot_mapbox() %>% 
+ufos1 <- ufos |> 
+  plot_mapbox() |> 
   layout(
     mapbox = list(
       style = "dark", 
       zoom = 2.4, 
       center = list(lat = 37, lon = -95)
     )
-  ) %>% 
+  ) |> 
   add_markers(
     x = ~longitude, 
     y = ~latitude,
@@ -95,15 +95,15 @@ widgets <- bscols(
 )
 
 bscols(widths = c(3,9), widgets,
-  ufos2 %>% 
-  plot_mapbox() %>% 
+  ufos2 |> 
+  plot_mapbox() |> 
   layout(
     mapbox = list(
       style = "dark", 
       zoom = 2.4, 
       center = list(lat = 37, lon = -95)
     )
-  ) %>% 
+  ) |> 
   add_markers(
     x = ~longitude, 
     y = ~latitude,
