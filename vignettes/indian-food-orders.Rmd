@@ -1,0 +1,89 @@
+---
+title: "Indian Food Orders"
+output: rmarkdown::html_vignette
+#fig_width: 6
+#fig_height: 7
+vignette: >
+  %\VignetteIndexEntry{Indian Food Orders}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(stringr)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+#library(apply303)
+```
+
+```{r, data load}
+knitr::opts_chunk$set(fig.width=8, fig.height=5) 
+```
+
+
+## Visualization
+```{r, data load}
+# Load data
+load(file = "~/DS303/apply303/data/name_and_quant.rda")
+```
+
+```{r, boxplot of average price of meat/veg dishes}
+
+box <- ggplot(data=name_and_quant, mapping=aes(x=Meat.Veg, y=Product.Price, color=Meat.Veg)) +
+  scale_colour_manual(values = c("tomato3","darkgreen")) +
+  theme_bw() + 
+  ggtitle("Price Distributions for Meat & Vegetable Dishes") +
+  xlab("Type of Dish") +
+  ylab("Price") +
+  geom_boxplot()
+```
+
+``` {r}
+ggplotly(box)
+```
+
+```{r, plot visualization}
+#name_and_quant$
+
+p <- name_and_quant %>%
+  ggplot( aes(Product.Price, Total.Quantity, color=Meat.Veg, label=Item.Name) ) +
+  scale_colour_manual(values = c("tomato3","darkgreen")) +
+  geom_jitter(width=0.15) +
+  theme_bw() + 
+  ggtitle("Items' Number of Orders by Price") +
+  xlab("Item Price") +
+  ylab("Total Number of Orders")
+```
+
+
+```{r}
+ggplotly(p)
+```
+
+
+### Background Information
+The item price is probably in pounds, since the data comes from a restaurant in London. I'm more interested in prices relative to each other than the prices themselves.  
+
+### Description of data source
+This dataset is from <https://www.kaggle.com/henslersoftware/19560-indian-takeaway-orders>. The set used has ~74000 rows containing information about an Indian restaurant's order history from 01-09-2015 to 12-07-2019.  
+
+Each row represents one order of one item. The columns included are order number, date ordered, item name, item price, quantity of item ordered, and total products in order.  
+
+### References/citations
+omg, i love stackoverflow! stackoverflow is my life...  
+
+### Reflections on project...
+**What ideas/suggestions from Claus Wilke helped shape your visualization?**  
+Wilke's scatterplot of birds' bill length against their skull size-- with color indicating the birds' sex -- gave me the idea to differentiate between meat/non-meat dishes with color. As a sometime vegetarian, I'm interested in comparing the price and popularity of these two groups!  
+  
+**Is there anything more you wish you could do with this data?**   
+YES. I wish I could do cooler things with it.  
+I'm still a noob when it comes to graphics and visualizations. This source had data for a whole other restaurant, and I wish I could have compared the two venues somehow. I also wish I could have made my graph look cooler!  
+Also, I wish I knew what all the names of the dishes meant. I'm not super familiar with Indian food, so it's entirely possible I missed some meat dishes because I didn't know what words to look for.  
+AND FINALLY! I wish I could have gotten my tag_as_meat() function working. Because of time constraints, I ended up using repetitive code to check for each individual meat word. :'(  
+  
+**What were the most interesting or frustrating technical aspects of doing this?**   
+The most interesting aspect was deciding which comparisons I wanted to make, and how I would represent them visually.  
+The most frustrating aspect was definitely wrangling the data. Writing an example row from the "end goal" dataset helped... but getting there took quite the struggle!  

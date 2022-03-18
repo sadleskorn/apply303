@@ -1,5 +1,10 @@
+library(stringr)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+
 # Load data
-rest_1_orders <- read.csv(file = "restaurant-1-orders.csv")
+rest_1_orders <- read.csv(file = "data-raw/indian-food-orders.csv")
 
 # Remove drink orders
 rest_1_orders <- rest_1_orders[!grepl('wine', rest_1_orders$Item.Name),]
@@ -37,3 +42,5 @@ name_and_quant <- name_and_quant %>% mutate(Meat.Veg =
                                                        str_detect(Item.Name, "Meat") |
                                                        str_detect(Item.Name, "Tandoori Mixed"),
                                                      "Meat", Meat.Veg))
+
+usethis::use_data(name_and_quant, overwrite = TRUE)
