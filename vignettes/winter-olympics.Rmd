@@ -21,13 +21,6 @@ library(apply303)
 library(plotly)
 ```
 
-```{r load-data, echo = FALSE}
-load(file = "~/Data-303/apply303/data/total_medals.rda")
-load(file = "~/Data-303/apply303/data/medal_counts.rda")
-load(file = "~/Data-303/apply303/data/medal_counts2.rda")
-load(file = "~/Data-303/apply303/data/medals_per_event.rda")
-load(file = "~/Data-303/apply303/data/medal_location2.rda")
-```
 
 ## Total Medals
 ```{r}

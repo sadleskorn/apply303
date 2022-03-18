@@ -18,16 +18,12 @@ library(plotly)
 #library(apply303)
 ```
 
-```{r, data load}
+```{r, set-fig-size}
 knitr::opts_chunk$set(fig.width=8, fig.height=5) 
 ```
 
 
 ## Visualization
-```{r, data load}
-# Load data
-load(file = "~/DS303/apply303/data/name_and_quant.rda")
-```
 
 ```{r, boxplot of average price of meat/veg dishes}
 
