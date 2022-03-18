@@ -32,7 +32,7 @@ Apply a function to a data frame
 \examples{
 n <- 7L
 TestData <-
- tibble( double = rnorm(n, 100, 10),
+ tibble::tibble( double = rnorm(n, 100, 10),
          x = 123400 / 10^(1L:n),
          integer = (1L:n) * (1L:n),    # ^2 would return a double!!
          character = LETTERS[1L:n],
@@ -40,6 +40,6 @@ TestData <-
          logical = rep(c(TRUE, FALSE), length.out = n) )
 df_apply(TestData, round, is.numeric, toupper, digits = 1)
 
-load(medals_per_event)
-df_apply(medals_per_event, tolower, !is.numeric)
+data(medals_per_event)
+df_apply(medals_per_event, tolower, function(x){!is.numeric(x)})
 }

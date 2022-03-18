@@ -12,14 +12,23 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
+Depends: 
+    R (>= 2.10)
+Imports:
+    ggplot2,
+    forcats,
+    tibble,
+    crosstalk,
+    stringr,
+    dplyr
 Suggests: 
     knitr,
     rmarkdown,
     testthat (>= 3.0.0),
     plotly,
-    tidyverse
+    fastR2,
+    tidyverse,
+    lubridate
 Config/testthat/edition: 3
-Depends: 
-    R (>= 2.10)
 LazyData: true
 VignetteBuilder: knitr
