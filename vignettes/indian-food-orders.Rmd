@@ -15,7 +15,7 @@ library(stringr)
 library(dplyr)
 library(ggplot2)
 library(plotly)
-#library(apply303)
+library(apply303)
 ```
 
 ```{r, set-fig-size}
