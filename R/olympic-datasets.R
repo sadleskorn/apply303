@@ -15,9 +15,9 @@
 #' plot_ly(x = ~Country, y = ~totals) %>%
 #'  add_bars() |>
 #'  layout(title = "Norway has more Winter Olympic Medals than All Other Countries<br> (1924 - 2014)")
-NULL
+##
 
-#' Medal Counts for Winter Olympics by Country
+#' @title Medal Counts for Winter Olympics by Country
 #'
 #' A dataset containing the medals and places won by each country, assuming the country
 #' has won at least 100 total medals
@@ -39,9 +39,9 @@ NULL
 #'  layout(barmode = "stack",
 #'         hovermode = "x") |>
 #'  layout(title = "Norway Has the Most Gold, Silver, <br> and Bronze Winter Olympic Medals <br> (1924 - 2014)")
-NULL
+##
 
-#' Medal Counts for Winter Olympics by Country
+#' @title Medal Counts for Winter Olympics by Country
 #'
 #' A dataset containing the medals and places won by each country, assuming the country
 #' has won at least 1 total medal
@@ -72,9 +72,9 @@ NULL
 #'                              list(method = "relayout", args = list("barmode", "stack"),
 #'                                   label = "Stack")
 #'                            ))))
-NULL
+##
 
-#' Medal Counts for Winter Olympics by Country per event
+#' @title Medal Counts for Winter Olympics by Country per event
 #'
 #' A dataset containing the medals and places won by each country,
 #' in each event, assuming the country has won at least 1 total medal
@@ -100,9 +100,9 @@ NULL
 #'           scale_color_manual(values=c("#FFD700", "#C0C0C0", "#CD7F32")) +
 #'           labs(x = "Country <br> (alphabetical)", y = "Medals Won", size = "",
 #'                title = "Medals per Country <br> Split by Event")))
-NULL
+##
 
-#' Medal Counts for Winter Olympics by Country
+#' @title Medal Counts for Winter Olympics by Country
 #'
 #' A dataset containing the medals and places won by each country, assuming the country
 #' has won at least 1 total medal; helpful for geospatial mapping
@@ -126,5 +126,5 @@ NULL
 #' reversescale = TRUE) |> # make darker countries = more medals
 #'  layout(title = "Winter Olympic Medals Won per Country <br> (1924 - 2014)") |>
 #'  colorbar(title = "Total Medals")
-NULL
+##
 
