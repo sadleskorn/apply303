@@ -16,6 +16,12 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(apply303)
+library(tidyverse)
+library(plotly)
+library(dplyr)
+library(lubridate)
+library(fastR2)
+library(knitr)
 ```
 
 
