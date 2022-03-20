@@ -1,3 +1,7 @@
+#' Unit tests for df_apply() function.
+#'
+##
+
 test_that("df_apply works", {
   # Dataframe we will run tests on
   TestData <- tibble::tibble(

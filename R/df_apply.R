@@ -24,6 +24,7 @@
 #' data(medals_per_event)
 #' df_apply(medals_per_event, tolower, function(x){!is.numeric(x)})
 ##
+
 df_apply <- function(.data, .f, .condition=function(x) {TRUE}, .else=function(x) {x}, ...) {
   .data |>
     lapply(
