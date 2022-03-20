@@ -27,8 +27,9 @@ has won at least 100 medals
 glimpse(total_medals)
 
 total_medals |>
-plot_ly(x = ~Country, y = ~totals) \%>\%
- add_bars() |>
- layout(title = "Norway has more Winter Olympic Medals than All Other Countries<br> (1924 - 2014)")
+plotly::plot_ly(x = ~Country, y = ~totals) |>
+ plotfunctions::add_bars() |>
+ plotly::layout(title = "Norway has more Winter Olympic
+ Medals than All Other Countries<br> (1924 - 2014)")
 }
 \keyword{datasets}

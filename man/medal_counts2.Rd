@@ -28,13 +28,16 @@ has won at least 1 total medal
 data(medal_counts2)
 
 medal_counts2 |>
-mutate(Medal = forcats::fct_relevel(Medal,'bronze','silver','gold'),
+dplyr::mutate(Medal = forcats::fct_relevel(Medal,'bronze','silver','gold'),
       Country = reorder(Country, totals, sum)) |>
- plot_ly() \%>\%
- add_bars(x = ~Country, y = ~totals, color = ~Medal, colors = c("#CD7F32", "#C0C0C0", "#FFD700")) |>
- layout(hovermode = "x") |>
- layout(title = "Norway Has the Most Gold, Silver, <br> and Bronze Winter Olympic Medals <br> (1924 - 2014)") |>
- layout(
+ plotly::plot_ly() |>
+ plotfunctions::add_bars(x = ~Country, y = ~totals, color = ~Medal,
+ colors = c("#CD7F32", "#C0C0C0", "#FFD700")) |>
+ plotly::layout(hovermode = "x") |>
+ plotly::layout(title = "Norway Has the Most Gold,
+ Silver, <br> and Bronze Winter Olympic
+ Medals <br> (1924 - 2014)") |>
+ plotly::layout(
    yaxis = list(title = "Total Medals"),
    xaxis = list(rangeslider = list(type = "date")),
    updatemenus = list(list(type = "buttons", direction = "right", x = 0.9, y = 0.98,

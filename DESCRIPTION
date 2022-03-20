@@ -28,7 +28,8 @@ Suggests:
     plotly,
     fastR2,
     tidyverse,
-    lubridate
+    lubridate,
+    plotfunctions
 Config/testthat/edition: 3
 LazyData: true
 VignetteBuilder: knitr

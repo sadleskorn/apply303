@@ -30,7 +30,7 @@ has won at least 1 total medal; helpful for geospatial mapping
 \examples{
 head(medal_location2)
 
-plot_ly(medal_location2,
+plotly::plot_ly(medal_location2,
 type='choropleth',
 locations=medal_location2$iso_a3,
 z=medal_location2$total, text=medal_location2$hover, colorscale="Blues",

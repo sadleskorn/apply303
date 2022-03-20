@@ -12,9 +12,10 @@
 #' glimpse(total_medals)
 #'
 #' total_medals |>
-#' plot_ly(x = ~Country, y = ~totals) %>%
-#'  add_bars() |>
-#'  layout(title = "Norway has more Winter Olympic Medals than All Other Countries<br> (1924 - 2014)")
+#' plotly::plot_ly(x = ~Country, y = ~totals) |>
+#'  plotfunctions::add_bars() |>
+#'  plotly::layout(title = "Norway has more Winter Olympic
+#'  Medals than All Other Countries<br> (1924 - 2014)")
 
 "total_medals"
 
@@ -33,13 +34,15 @@
 #' head(medal_counts)
 #'
 #' medal_counts |>
-#' mutate(Medal = forcats::fct_relevel(Medal,'bronze','silver','gold'),
+#' dplyr::mutate(Medal = forcats::fct_relevel(Medal,'bronze','silver','gold'),
 #'       Country = reorder(Country, totals, sum)) |>
-#'  plot_ly(x = ~Country, y = ~totals, color = ~Medal) %>%
-#'  add_bars() |>
-#'  layout(barmode = "stack",
+#'  plotly::plot_ly(x = ~Country, y = ~totals, color = ~Medal) |>
+#'  plotfunctions::add_bars() |>
+#'  plotly::layout(barmode = "stack",
 #'         hovermode = "x") |>
-#'  layout(title = "Norway Has the Most Gold, Silver, <br> and Bronze Winter Olympic Medals <br> (1924 - 2014)")
+#'  plotly::layout(title = "Norway Has the Most Gold,
+#'  Silver, <br> and Bronze Winter Olympic
+#'  Medals <br> (1924 - 2014)")
 
 "medal_counts"
 
@@ -58,13 +61,16 @@
 #' data(medal_counts2)
 #'
 #' medal_counts2 |>
-#' mutate(Medal = forcats::fct_relevel(Medal,'bronze','silver','gold'),
+#' dplyr::mutate(Medal = forcats::fct_relevel(Medal,'bronze','silver','gold'),
 #'       Country = reorder(Country, totals, sum)) |>
-#'  plot_ly() %>%
-#'  add_bars(x = ~Country, y = ~totals, color = ~Medal, colors = c("#CD7F32", "#C0C0C0", "#FFD700")) |>
-#'  layout(hovermode = "x") |>
-#'  layout(title = "Norway Has the Most Gold, Silver, <br> and Bronze Winter Olympic Medals <br> (1924 - 2014)") |>
-#'  layout(
+#'  plotly::plot_ly() |>
+#'  plotfunctions::add_bars(x = ~Country, y = ~totals, color = ~Medal,
+#'  colors = c("#CD7F32", "#C0C0C0", "#FFD700")) |>
+#'  plotly::layout(hovermode = "x") |>
+#'  plotly::layout(title = "Norway Has the Most Gold,
+#'  Silver, <br> and Bronze Winter Olympic
+#'  Medals <br> (1924 - 2014)") |>
+#'  plotly::layout(
 #'    yaxis = list(title = "Total Medals"),
 #'    xaxis = list(rangeslider = list(type = "date")),
 #'    updatemenus = list(list(type = "buttons", direction = "right", x = 0.9, y = 0.98,
@@ -123,7 +129,7 @@
 #' @examples
 #' head(medal_location2)
 #'
-#' plot_ly(medal_location2,
+#' plotly::plot_ly(medal_location2,
 #' type='choropleth',
 #' locations=medal_location2$iso_a3,
 #' z=medal_location2$total, text=medal_location2$hover, colorscale="Blues",
