@@ -83,13 +83,23 @@ A dataset containing the total quantity of each dish ordered, as well as the dis
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">glimpse</span><span class="op">(</span><span class="va">name_and_quant</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in glimpse(name_and_quant):</span> could not find function "glimpse"</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">pillar</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">name_and_quant</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 238</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ Item.Name      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Aloo Chaat", "Aloo Gobi", "Aloo Methi", "Baingan Hari …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ Total.Quantity <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 316, 620, 44, 199, 45, 18, 23, 109, 73, 247, 524, 211, …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ Product.Price  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 4.950000, 5.950000, 5.950000, 5.950000, 12.950000, 12.9…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ Prop.of.Total  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0.0034275921, 0.0067250225, 0.0004772597, 0.0021585153,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ Meat.Veg       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Veg", "Veg", "Veg", "Veg", "Meat", "Meat", "Meat", "Me…</span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">name_and_quant</span> <span class="op">%&gt;%</span> <span class="fu">group_by</span><span class="op">(</span><span class="va">Meat.Veg</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span class="r-in"><span class="fu">summarise</span><span class="op">(</span>Num.Dishes.Sold <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">Total.Quantity</span><span class="op">)</span>,</span>
+<span class="r-in"><span class="va">name_and_quant</span> |&gt; <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">Meat.Veg</span><span class="op">)</span> |&gt;</span>
+<span class="r-in"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>Num.Dishes.Sold <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">Total.Quantity</span><span class="op">)</span>,</span>
 <span class="r-in">Total.Revenue <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">Total.Quantity</span> <span class="op">*</span> <span class="va">Product.Price</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in name_and_quant %&gt;% group_by(Meat.Veg) %&gt;% summarise(Num.Dishes.Sold = sum(Total.Quantity),     Total.Revenue = sum(Total.Quantity * Product.Price)):</span> could not find function "%&gt;%"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Meat.Veg Num.Dishes.Sold Total.Revenue</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Meat               <span style="text-decoration: underline;">23</span>916       <span style="text-decoration: underline;">210</span>574.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Veg                <span style="text-decoration: underline;">68</span>277       <span style="text-decoration: underline;">230</span>660.</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
