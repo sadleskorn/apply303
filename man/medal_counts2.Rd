@@ -25,13 +25,13 @@ A dataset containing the medals and places won by each country, assuming the cou
 has won at least 1 total medal
 }
 \examples{
-data(medal_counts2)
+utils::data(medal_counts2)
 
 medal_counts2 |>
 dplyr::mutate(Medal = forcats::fct_relevel(Medal,'bronze','silver','gold'),
       Country = reorder(Country, totals, sum)) |>
  plotly::plot_ly() |>
- plotfunctions::add_bars(x = ~Country, y = ~totals, color = ~Medal,
+ plotly::add_bars(x = ~Country, y = ~totals, color = ~Medal,
  colors = c("#CD7F32", "#C0C0C0", "#FFD700")) |>
  plotly::layout(hovermode = "x") |>
  plotly::layout(title = "Norway Has the Most Gold,

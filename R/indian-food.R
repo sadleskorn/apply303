@@ -11,10 +11,10 @@
 #' \item{Meat.Veg}{Whether the dish is vegetarian (Veg) or not (Meat)} }
 #'
 #' @examples
-#' glimpse(name_and_quant)
+#' pillar::glimpse(name_and_quant)
 #'
-#' name_and_quant %>% group_by(Meat.Veg) %>%
-#' summarise(Num.Dishes.Sold = sum(Total.Quantity),
+#' name_and_quant |> dplyr::group_by(Meat.Veg) |>
+#' dplyr::summarise(Num.Dishes.Sold = sum(Total.Quantity),
 #' Total.Revenue = sum(Total.Quantity * Product.Price))
 
 "name_and_quant"

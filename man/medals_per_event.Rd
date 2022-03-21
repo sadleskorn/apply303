@@ -26,18 +26,7 @@ A dataset containing the medals and places won by each country,
 in each event, assuming the country has won at least 1 total medal
 }
 \examples{
-glimpse(medals_per_event)
+pillar::glimpse(medals_per_event)
 
-bscols(widths = c(2,NA),
-list(
- filter_select("Sport", "Sport", shared_medals, ~Sport)
-),
-ggplotly(shared_medals \%>\%
-          ggplot(aes(Country, totals)) +
-          geom_point(aes(color = Medal, label = Sport))  +
-          theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
-          scale_color_manual(values=c("#FFD700", "#C0C0C0", "#CD7F32")) +
-          labs(x = "Country <br> (alphabetical)", y = "Medals Won", size = "",
-               title = "Medals per Country <br> Split by Event")))
 }
 \keyword{datasets}

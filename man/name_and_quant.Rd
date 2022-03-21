@@ -24,10 +24,10 @@ Takeout orders from an Indian restaurant.
 A dataset containing the total quantity of each dish ordered, as well as the dish's price and status as vegetarian or meat.
 }
 \examples{
-glimpse(name_and_quant)
+pillar::glimpse(name_and_quant)
 
-name_and_quant \%>\% group_by(Meat.Veg) \%>\%
-summarise(Num.Dishes.Sold = sum(Total.Quantity),
+name_and_quant |> dplyr::group_by(Meat.Veg) |>
+dplyr::summarise(Num.Dishes.Sold = sum(Total.Quantity),
 Total.Revenue = sum(Total.Quantity * Product.Price))
 }
 \keyword{datasets}

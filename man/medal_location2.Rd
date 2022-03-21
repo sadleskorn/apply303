@@ -28,14 +28,14 @@ A dataset containing the medals and places won by each country, assuming the cou
 has won at least 1 total medal; helpful for geospatial mapping
 }
 \examples{
-head(medal_location2)
+utils::head(medal_location2)
 
 plotly::plot_ly(medal_location2,
 type='choropleth',
 locations=medal_location2$iso_a3,
 z=medal_location2$total, text=medal_location2$hover, colorscale="Blues",
 reversescale = TRUE) |> # make darker countries = more medals
- layout(title = "Winter Olympic Medals Won per Country <br> (1924 - 2014)") |>
- colorbar(title = "Total Medals")
+ plotly::layout(title = "Winter Olympic Medals Won per Country <br> (1924 - 2014)") |>
+ plotly::colorbar(title = "Total Medals")
 }
 \keyword{datasets}

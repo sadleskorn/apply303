@@ -24,11 +24,11 @@ A dataset containing the total medals won by each country, assuming the country
 has won at least 100 medals
 }
 \examples{
-glimpse(total_medals)
+pillar::glimpse(total_medals)
 
 total_medals |>
 plotly::plot_ly(x = ~Country, y = ~totals) |>
- plotfunctions::add_bars() |>
+ plotly::add_bars() |>
  plotly::layout(title = "Norway has more Winter Olympic
  Medals than All Other Countries<br> (1924 - 2014)")
 }

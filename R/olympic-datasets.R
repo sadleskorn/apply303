@@ -9,11 +9,11 @@
 #'   \item{totals}{total number of medals, in counts}
 #' }
 #' @examples
-#' glimpse(total_medals)
+#' pillar::glimpse(total_medals)
 #'
 #' total_medals |>
 #' plotly::plot_ly(x = ~Country, y = ~totals) |>
-#'  plotfunctions::add_bars() |>
+#'  plotly::add_bars() |>
 #'  plotly::layout(title = "Norway has more Winter Olympic
 #'  Medals than All Other Countries<br> (1924 - 2014)")
 
@@ -31,13 +31,13 @@
 #'   \item{totals}{number of medals of that type, in counts}
 #' }
 #' @examples
-#' head(medal_counts)
+#' utils::head(medal_counts)
 #'
 #' medal_counts |>
 #' dplyr::mutate(Medal = forcats::fct_relevel(Medal,'bronze','silver','gold'),
 #'       Country = reorder(Country, totals, sum)) |>
 #'  plotly::plot_ly(x = ~Country, y = ~totals, color = ~Medal) |>
-#'  plotfunctions::add_bars() |>
+#'  plotly::add_bars() |>
 #'  plotly::layout(barmode = "stack",
 #'         hovermode = "x") |>
 #'  plotly::layout(title = "Norway Has the Most Gold,
@@ -58,13 +58,13 @@
 #'   \item{totals}{number of medals of that type, in counts}
 #' }
 #' @examples
-#' data(medal_counts2)
+#' utils::data(medal_counts2)
 #'
 #' medal_counts2 |>
 #' dplyr::mutate(Medal = forcats::fct_relevel(Medal,'bronze','silver','gold'),
 #'       Country = reorder(Country, totals, sum)) |>
 #'  plotly::plot_ly() |>
-#'  plotfunctions::add_bars(x = ~Country, y = ~totals, color = ~Medal,
+#'  plotly::add_bars(x = ~Country, y = ~totals, color = ~Medal,
 #'  colors = c("#CD7F32", "#C0C0C0", "#FFD700")) |>
 #'  plotly::layout(hovermode = "x") |>
 #'  plotly::layout(title = "Norway Has the Most Gold,
@@ -96,19 +96,8 @@
 #'   \item{totals}{number of medals of that type, in counts}
 #' }
 #' @examples
-#' glimpse(medals_per_event)
+#' pillar::glimpse(medals_per_event)
 #'
-#' bscols(widths = c(2,NA),
-#' list(
-#'  filter_select("Sport", "Sport", shared_medals, ~Sport)
-#' ),
-#' ggplotly(shared_medals %>%
-#'           ggplot(aes(Country, totals)) +
-#'           geom_point(aes(color = Medal, label = Sport))  +
-#'           theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
-#'           scale_color_manual(values=c("#FFD700", "#C0C0C0", "#CD7F32")) +
-#'           labs(x = "Country <br> (alphabetical)", y = "Medals Won", size = "",
-#'                title = "Medals per Country <br> Split by Event")))
 
 "medals_per_event"
 
@@ -127,15 +116,15 @@
 #'   \item{total}{total number of medals, sum of bronze, gold, and silver}
 #' }
 #' @examples
-#' head(medal_location2)
+#' utils::head(medal_location2)
 #'
 #' plotly::plot_ly(medal_location2,
 #' type='choropleth',
 #' locations=medal_location2$iso_a3,
 #' z=medal_location2$total, text=medal_location2$hover, colorscale="Blues",
 #' reversescale = TRUE) |> # make darker countries = more medals
-#'  layout(title = "Winter Olympic Medals Won per Country <br> (1924 - 2014)") |>
-#'  colorbar(title = "Total Medals")
+#'  plotly::layout(title = "Winter Olympic Medals Won per Country <br> (1924 - 2014)") |>
+#'  plotly::colorbar(title = "Total Medals")
 
 "medal_location2"
 

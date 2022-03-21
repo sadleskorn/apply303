@@ -36,7 +36,7 @@ test_that("df_apply works", {
   )
 
   TestRes_4 <- tibble::tibble(
-    l_char = c('z', 'y', 'x', 'w', ''),
+    l_char = c('z', 'y', 'x', 'w', 'v'),
     factor = factor(c('red', 'orange', 'yellow', 'green', 'blue')),
     int = c(3, 3, 3, 3, 3)
   )

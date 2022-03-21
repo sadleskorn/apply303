@@ -1,5 +1,5 @@
 Package: apply303
-Title: What the Package Does (One Line, Title Case)
+Title: Apply and Visualize
 Version: 0.0.0.9000
 Authors@R: 
     c(person("Sadie", "Kornoelje", , "smk92@calvin.edu", role = c("aut", "cre")),
@@ -16,6 +16,7 @@ Depends:
     R (>= 2.10)
 Imports:
     ggplot2,
+    ggformula,
     forcats,
     tibble,
     crosstalk,
@@ -29,7 +30,8 @@ Suggests:
     fastR2,
     tidyverse,
     lubridate,
-    plotfunctions
+    pillar,
+    utils
 Config/testthat/edition: 3
 LazyData: true
 VignetteBuilder: knitr
