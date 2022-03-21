@@ -14,7 +14,7 @@
 #' \item{comments}{description of the sighting}
 #' \item{date posted}{date the sighting was posted}
 #' \item{latitude}{latitude of the location of the sighting}
-#' \item{longitude}{longitude of the location of the sighting }
+#' \item{longitude}{longitude of the location of the sighting }}
 #'
 #' @examples
 #' pillar::glimpse(ufos)
